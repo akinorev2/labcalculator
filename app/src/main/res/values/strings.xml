@@ -18,7 +18,7 @@
     <string name="power">^</string>
     <string name="minus">-</string>
     <string name="point">.</string>
-    <string name="plusorminus">+/-</string>
+    <string name="plus_or_minus">+/-</string>
     <string name="equals">=</string>
     <string name="backspace"> </string>
     <string name="enter_a_value">Enter a value</string>
