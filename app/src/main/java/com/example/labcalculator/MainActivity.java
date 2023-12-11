@@ -1,14 +1,14 @@
 package com.example.labcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import org.mariuszgromada.math.mxparser.*;
+import org.mariuszgromada.math.mxparser.Expression;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText display;
+    public EditText display;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,14 +110,15 @@ public class MainActivity extends AppCompatActivity {
     public void plusBTN(View view){
         updateText("+");
     }
-    public void equalsBTN(View view){
+    public void equalsBTN(View view) {
         String userExp = display.getText().toString();
-        userExp = userExp.replaceAll("÷" , "/");
-        userExp = userExp.replaceAll("×" , "*");
+        userExp = userExp.replaceAll("÷", "/");
+        userExp = userExp.replaceAll("×", "*");
         Expression exp = new Expression(userExp);
-        String result = String.valueOf(exp.calculate());
-        display.setText(result);
-        display.setSelection(result.length());
+        double result = exp.calculate(); // Calculate the expression and store the result
+        String resultStr = Double.toString(result);
+        display.setText(resultStr);
+        display.setSelection(resultStr.length());
     }
     public void pointBTN(View view){
         updateText(".");
